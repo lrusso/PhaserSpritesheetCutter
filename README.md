@@ -1,7 +1,7 @@
 # Phaser Spritesheet Extractor
 
 * Select your spritesheet image file.
-* Set the frame width and height.
+* Input the frame width and height used in that spritesheet file.
 * Click in the 'Extract Frames' button.
 * Click in the 'Download ZIP' button.
 
