@@ -17,10 +17,10 @@
 	</head>
 	<body>
 		<div class="main">
-			<input type="text" id="frameWidth" placeholder="frameWidth">
-			<input type="text" id="frameHeight" placeholder="frameHeight">
+			<input type="text" id="tileWidth" placeholder="tileWidth">
+			<input type="text" id="tileHeight" placeholder="tileHeight">
 			<input type="file" id="spriteSheetFile">
-			<input type="button" id="extract" value="EXTRACT FRAMES">
+			<input type="button" id="extract" value="EXTRACT TILES">
 			<input type="button" id="download" value="DOWNLOAD ZIP FILE">
 		</div>
 		<div class="container"></div>
@@ -34,12 +34,12 @@
 			window.addEventListener("load", function()
 				{
 				// GETTING ALL THE ELEMENTS IN THE WEB FORM
-				var frameWidth = document.getElementById("frameWidth");
-				var frameHeight = document.getElementById("frameHeight");
+				var tileWidth = document.getElementById("tileWidth");
+				var tileHeight = document.getElementById("tileHeight");
 
 				// CLEARING ALL THE INPUTTED VALUES (IF ANY)
-				frameWidth.value = "";
-				frameHeight.value = "";
+				tileWidth.value = "";
+				tileHeight.value = "";
 				document.getElementById("spriteSheetFile").value = null;
 
 				function update()
@@ -68,7 +68,7 @@
 									// SETTING THE MAIN IMAGE DATA
 									mainImage = tempImage;
 
-									// SHOWING THE EXTRACT FRAME BUTTON
+									// SHOWING THE EXTRACT TILES BUTTON
 									document.getElementById("extract").style.display = "inline-block";
 									};
 
@@ -95,8 +95,8 @@
 						// HIDING THE DOWNLOAD ZIP FILE BUTTON
 						document.getElementById("download").style.display = "none";
 
-						// CHECKING IF THERE ARE VALID WIDTH AND HEIGHT FRAME VALUES
-						if (frameWidth.value>=0 && frameHeight.value>=0)
+						// CHECKING IF THERE ARE VALID WIDTH AND HEIGHT TILE VALUES
+						if (tileWidth.value>=0 && tileHeight.value>=0)
 							{
 							// CREATING THE MAIN CANVAS
 							var mainCanvas = document.createElement("canvas");
@@ -112,23 +112,23 @@
 							mainCanvasContext.drawImage(mainImage, 0, 0, mainImage.width, mainImage.height);
 
 							// LOOPING Y
-							for (var i = 0; i < mainImage.height / frameHeight.value; i++)
+							for (var i = 0; i < mainImage.height / tileHeight.value; i++)
 								{
 								// SETTING THE Y MARGIN VALUE
-								var marginY = (i * frameHeight.value + (i*2));
+								var marginY = (i * tileHeight.value + (i*2));
 
 								// LOOPING X
-								for (var j = 0; j < mainImage.width / frameWidth.value; j++)
+								for (var j = 0; j < mainImage.width / tileWidth.value; j++)
 									{
 									// CREATING THE FRAME CANVAS
 									var frameCanvas = document.createElement("canvas");
 
 									// SETTING THE FRAME CANVAS SIZE
-									frameCanvas.width = frameWidth.value;
-									frameCanvas.height = frameHeight.value;
+									frameCanvas.width = tileWidth.value;
+									frameCanvas.height = tileHeight.value;
 
 									// GETTING THE FRAME FROM THE MAIN IMAGE
-									var ImageData = mainCanvasContext.getImageData(j * frameWidth.value, i * frameHeight.value, frameWidth.value, frameHeight.value);
+									var ImageData = mainCanvasContext.getImageData(j * tileWidth.value, i * tileHeight.value, tileWidth.value, tileHeight.value);
 
 									// DRAWING THE FRAME FROM THE MAIN IMAGE TO THE FRAME CANVAS
 									frameCanvas.getContext("2d").putImageData(ImageData, 0, 0);
@@ -160,6 +160,9 @@
 						}
 						catch(err)
 						{
+						// HIDING THE EXTRACT TILES BUTTON
+						document.getElementById("extract").style.display = "none";
+
 						// HIDING THE DOWNLOAD ZIP FILE BUTTON
 						document.getElementById("download").style.display = "none";
 						}
