@@ -1,5 +1,9 @@
 # Phaser Spritesheet Extractor
 
+Phaser Spritesheet Extractor in JavaScript.
+
+## How does it work?
+
 * Select your spritesheet image file.
 * Input the frame width and height used in that spritesheet file.
 * Click in the 'Extract Frames' button.
