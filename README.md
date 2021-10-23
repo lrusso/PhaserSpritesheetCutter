@@ -6,9 +6,9 @@ Phaser Spritesheet Cutter in JavaScript.
 
 * Select your spritesheet image file.
 * Set the tileWidth and tileHeight values.
-* Click in the 'Extract Tiles' button.
+* Click in the 'EXTRACT TILES' button.
 * You will see all the spritesheet frames as independant images.
-* Click in the 'Download ZIP' button.
+* Click in the 'DOWNLOAD ZIP' button.
 
 ## Web:
 
