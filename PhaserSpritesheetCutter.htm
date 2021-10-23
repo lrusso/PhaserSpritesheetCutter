@@ -160,11 +160,8 @@
 						}
 						catch(err)
 						{
-						// HIDING THE EXTRACT TILES BUTTON
-						document.getElementById("extract").style.display = "none";
-
-						// HIDING THE DOWNLOAD ZIP FILE BUTTON
-						document.getElementById("download").style.display = "none";
+						// CLEANING THE IMAGE CONTAINER
+						document.getElementsByClassName("container")[0].innerHTML = "";
 						}
 					}
 
